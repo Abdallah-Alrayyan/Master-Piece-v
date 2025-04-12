@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Modern Wishlist</title>
+    <style>
+        :root {
+            --primary-color: #f39c12;
+            --secondary-color: #e67e22;
+            --accent-color: #e74c3c;
+            --dark-color: #2d3436;
+            --light-color: #f5f6fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            color: var(--dark-color);
+            opacity: 0.7;
+            font-size: 1.2rem;
+        }
+
+        .wishlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            perspective: 1000px;
+        }
+
+        .wishlist-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .wishlist-item:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .item-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .item-content {
+            padding: 1.5rem;
+            position: relative;
+            z-index: 1;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .item-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .item-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .item-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: auto;
+        }
+
+        .btn {
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .priority {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(243, 156, 18, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .wishlist-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Wishlist</h1>
+            <p class="subtitle">All the things I dream about</p>
+        </header>
+
+        <div class="wishlist-grid">
+            <!-- Wishlist Item 1 -->
+            <div class="wishlist-item">
+                <span class="priority">High Priority</span>
+                <img src="https://images.unsplash.com/photo-1556656793-08538906a9f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Product" class="item-image">
+                <div class="item-content">
+                    <h3 class="item-title">Wireless Headphones</h3>
+                    <p class="item-price">$199.99</p>
+                    <p class="item-description">Premium noise-canceling wireless headphones with 30-hour battery life and crystal clear sound.</p>
+                    <div class="item-actions">
+                        <button class="btn btn-primary">Shop Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wishlist Item 2 -->
+            <div class="wishlist-item">
+                <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Product" class="item-image">
+                <div class="item-content">
+                    <h3 class="item-title">MacBook Pro</h3>
+                    <p class="item-price">$2,399.00</p>
+                    <p class="item-description">16-inch MacBook Pro with M1 Pro chip, 16GB RAM, and 1TB SSD storage.</p>
+                    <div class="item-actions">
+                        <button class="btn btn-primary">Shop Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wishlist Item 3 -->
+            <div class="wishlist-item">
+                <span class="priority">Medium Priority</span>
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Product" class="item-image">
+                <div class="item-content">
+                    <h3 class="item-title">Smart Watch</h3>
+                    <p class="item-price">$349.00</p>
+                    <p class="item-description">Advanced smartwatch with health monitoring, GPS, and always-on retina display.</p>
+                    <div class="item-actions">
+                        <button class="btn btn-primary">Shop Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

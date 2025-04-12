@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Clothing Offers</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header/Navbar Styling */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: #111;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        .cart {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart span {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: red;
+            color: white;
+            font-size: 0.8rem;
+            padding: 2px 5px;
+            border-radius: 50%;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .dropdown-toggle:hover {
+            color: #f39c12;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        .dropdown-menu a {
+            color: #333;
+            padding: 0.8rem 1.2rem;
+            white-space: nowrap;
+            text-align: left;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f39c12;
+            color: white;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: flex;
+        }
+
+        /* Main Content */
+        main {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .sidebar {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+        }
+
+        .sidebar h3 {
+            margin-bottom: 15px;
+            color: #f39c12;
+        }
+
+        .sidebar label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #ccc;
+        }
+
+        .offers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            flex: 1;
+        }
+
+        .card {
+            background-color: #fff;;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .card h4 {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #f39c12;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+        .card button {
+            padding: 10px 20px;
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .card button:hover {
+            background-color: #e67e22;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 30px;
+            background: #111;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        footer a {
+            color: #f39c12;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header/Navbar -->
+    <header>
+        <div class="logo">BECK</div>
+        <nav>
+            <a href="Home.html">Home</a>
+            <a href="Offers.html">Offers</a>
+            <div class="dropdown">
+                <div class="dropdown-toggle">Categories</div>
+                <div class="dropdown-menu">
+                    <a href="clothes.html">Clothes</a>
+                    <a href="furniture.html">Furniture</a>
+                    <a href="food.html">Food</a>
+                </div>
+            </div>
+            <a href="About Us.html">About Us</a>
+            <a href="Contact.html">Contact</a>
+            <a href="profile.html" title="Profile" class="icon-link">
+                <i class="fa fa-user"></i>
+            </a>
+            <a href="wishlist.html" title="Wish List" class="icon-link">
+                <i class="fa fa-heart"></i>
+            </a>
+            <a href="#" class="icon-link cart" title="Cart">
+                <i class="fa fa-shopping-cart"></i>
+                <span>2</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="sidebar">
+            <h3>Filter by Category</h3>
+            <!-- Updated Filter Options -->
+            <div>
+                <label><input type="checkbox"> T-Shirts</label>
+                <label><input type="checkbox"> Jeans</label>
+                <label><input type="checkbox"> Jackets</label>
+                <label><input type="checkbox"> Dresses</label>
+                <label><input type="checkbox"> Shoes</label>
+                <label><input type="checkbox"> Accessories</label>
+            </div>
+
+            <h3>Filter by Size</h3>
+            <div>
+                <label><input type="radio" name="size"> Small</label>
+                <label><input type="radio" name="size"> Medium</label>
+                <label><input type="radio" name="size"> Large</label>
+                <label><input type="radio" name="size"> XL</label>
+            </div>
+
+            <h3>Filter by Price</h3>
+            <div>
+                <input type="range" min="1" max="500" value="100" id="priceRange">
+                <p>Max Price: $<span id="priceValue">100</span></p>
+            </div>
+        </div>
+
+        <div class="offers">
+            <!-- Updated Product Cards -->
+            <div class="card">
+                <img src="images/clothes 1.jpg" alt="Cotton T-Shirt">
+                <h4>Cotton T-Shirt</h4>
+                <p>$15.99</p>
+                <button onclick="location.href='Product Page.html'">Shop Now</button>
+            </div>
+            <div class="card">
+                <img src="images/clothes 2.jpg" alt="Blue Denim Jeans">
+                <h4>Blue Denim Jeans</h4>
+                <p>$39.99</p>
+                <button onclick="location.href='Product Page.html'">Shop Now</button>
+            </div>
+            <div class="card">
+                <img src="images/clothes 3.jpg" alt="Leather Jacket">
+                <h4>Leather Jacket</h4>
+                <p>$89.99</p>
+                <button onclick="location.href='Product Page.html'">Shop Now</button>
+            </div>
+            <div class="card">
+                <img src="images/clothes 4.jpg" alt="Floral Summer Dress">
+                <h4>Floral Summer Dress</h4>
+                <p>$25.99</p>
+                <button onclick="location.href='Product Page.html'">Shop Now</button>
+            </div>
+            <div class="card">
+                <img src="images/clothes 5.jpg" alt="Formal Shoes">
+                <h4>Formal Shoes</h4>
+                <p>$49.99</p>
+                <button onclick="location.href='Product Page.html'">Shop Now</button>
+            </div>
+            <div class="card">
+                <img src="images/clothes 6.jpg" alt="Wool Scarf">
+                <h4>Wool Scarf</h4>
+                <p>$12.99</p>
+                <button onclick="location.href='Product Page.html'">Shop Now</button>
+            </div>
+            <div class="card">
+                <img src="images/clothes 2.jpg" alt="Casual Sneakers">
+                <h4>Casual Sneakers</h4>
+                <p>$45.99</p>
+                <button onclick="location.href='Product Page.html'">Shop Now</button>
+            </div>
+            <div class="card">
+                <img src="images/clothes 3.jpg" alt="Kids' Hoodie">
+                <h4>Kids' Hoodie</h4>
+                <p>$19.99</p>
+                <button onclick="location.href='Product Page.html'">Shop Now</button>
+            </div>
+            <div class="card">
+                <img src="images/clothes 1.jpg" alt="Sun Hat">
+                <h4>Sun Hat</h4>
+                <p>$14.99</p>
+                <button onclick="location.href='Product Page.html'">Shop Now</button>
+            </div>
+            <div class="card">
+                <img src="images/clothes 5.jpg" alt="Slim-Fit Chinos">
+                <h4>Slim-Fit Chinos</h4>
+                <p>$29.99</p>
+                <button onclick="location.href='Product Page.html'">Shop Now</button>
+            </div>
+            <div class="card">
+                <img src="images/clothes 6.jpg" alt="Denim Jacket">
+                <h4>Denim Jacket</h4>
+                <p>$59.99</p>
+                <button onclick="location.href='Product Page.html'">Shop Now</button>
+            </div>
+            <div class="card">
+                <img src="images/clothes 4.jpg" alt="Graphic Tee">
+                <h4>Graphic Tee</h4>
+                <p>$17.99</p>
+                <button onclick="location.href='Product Page.html'">Shop Now</button>
+                
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 BECK . All Rights Reserved.</p>
+        <p><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        // Update price filter dynamically
+        const priceRange = document.getElementById('priceRange');
+        const priceValue = document.getElementById('priceValue');
+
+        priceRange.addEventListener('input', () => {
+            priceValue.textContent = priceRange.value;
+        });
+    </script>
+
+</body>
+</html>
